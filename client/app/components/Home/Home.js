@@ -15,7 +15,7 @@ class Home extends Component {
     this.deleteCounter = this.deleteCounter.bind(this);
 
     this._modifyCounter = this._modifyCounter.bind(this);
-  }
+  } 
 
   componentDidMount() {
     fetch('/api/counters')
