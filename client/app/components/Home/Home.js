@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-// import { JavascriptModulesPlugin } from 'webpack';
 import 'whatwg-fetch';
 
 import {
@@ -140,6 +139,50 @@ class Home extends Component {
     }
 
 
+    onSignUp() {
+      // Grab state
+      const {
+        signUpFirstName,
+        signUpLastName,
+        signUpUsername,
+        signUpEmail,
+        signUpPassword,
+      } = this.state;
+      this.setState({
+        isLoading: true,
+      });
+      // Post request to backend
+      fetch('/api/account/signup', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json'
+        },
+        body: JSON.stringify({
+          firstName: signUpFirstName,
+          lastName: signUpLastName,
+          userName: signUpUsername,
+          email: signUpEmail,
+          password: signUpPassword,
+        }),
+      }).then(res => res.json())
+        .then(json => {
+          console.log('json', json);
+          if (json.success) {
+            this.setState({
+              signUpError: json.message,
+              isLoading: false,
+              signUpEmail: '',
+              signUpPassword: '',
+            });
+          } else {
+            this.setState({
+              signUpError: json.message,
+              isLoading: false,
+            });
+          }
+        });
+    }
+
     render() {
       const {
         isLoading,
@@ -148,6 +191,8 @@ class Home extends Component {
         signInUsername,
         signInPassword,
         signUpUsername,
+        signUpFirstName,
+        signUpLastName,
         signUpEmail,
         signUpPassword,
         signUpError,
@@ -225,11 +270,11 @@ class Home extends Component {
           </div>
         );
       }
-      return (
-        <div>
-          <p>Signed in</p>
-        </div>
-      );
+      // return (
+      //   <div>
+      //     <p>Signed in</p>
+      //   </div>
+      // );
     }
   }
     export default Home;

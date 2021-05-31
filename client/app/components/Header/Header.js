@@ -19,16 +19,16 @@ function Header() {
               </Link>
               <ul className="right hide-on-med-and-down">
                 <li>
-                  <Link to="/">Home</Link>
+                  <Link to="/">HOME</Link>
                 </li>
                 <li>
-                  <Link to="/Signup">Sign Up</Link>
+                  <Link to="/api/account/signup">SIGN UP</Link>
                 </li>
                 <li>
-                  <Link to="/Login">Log in</Link>
+                  <Link to="/api/account/signin">LOG IN</Link>
                 </li>
                 <li>
-                  <Link to="/AboutPage">About</Link>
+                  <Link to="/AboutPage">ABOUT</Link>
                 </li>
               </ul>
             </div>
