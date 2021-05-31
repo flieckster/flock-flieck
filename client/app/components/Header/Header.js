@@ -22,10 +22,10 @@ function Header() {
                   <Link to="/">HOME</Link>
                 </li>
                 <li>
-                  <Link to="/api/account/signup">SIGN UP</Link>
+                  <Link to="/signup">SIGN UP</Link>
                 </li>
                 <li>
-                  <Link to="/api/account/signin">LOG IN</Link>
+                  <Link to="/signin">LOG IN</Link>
                 </li>
                 <li>
                   <Link to="/AboutPage">ABOUT</Link>
